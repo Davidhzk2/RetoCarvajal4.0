@@ -12,56 +12,34 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.model.Persona;
-import com.example.demo.repository.PersonaRepository;
-
-
-
+import com.example.demo.model.Productos;
+import com.example.demo.repository.ProductoRepository;
 
 @Service
-public class PersonaService implements PersonaRepository {
-	
+public class ProdcutoService implements ProductoRepository{
+
 	@Autowired
-	private PersonaRepository personaRepository;
+	private ProductoRepository productoRepository;
 	
-	
-	//Metodos 
-	public Persona create(Persona persona) {
-		return personaRepository.save(persona);
-	}
-	
-	public List<Persona>  getAllPersonas (){	
-		return personaRepository.findAll();
-	}
-	
-	public void delete (Persona persona){
-		 personaRepository.delete(persona);
-	}
-	
-	public Optional<Persona> findAllById (Long Id) {
-		return personaRepository.findById(Id);
+
+	@Override
+	public List<Productos> findAll() {
+		return productoRepository.findAll();
 	}
 
 	@Override
-	public List<Persona> findAll() {
+	public List<Productos> findAll(Sort sort) {
+		return productoRepository.findAll(sort);
+	}
+
+	@Override
+	public List<Productos> findAllById(Iterable<Long> ids) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Persona> findAll(Sort sort) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Persona> findAllById(Iterable<Long> ids) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <S extends Persona> List<S> saveAll(Iterable<S> entities) {
+	public <S extends Productos> List<S> saveAll(Iterable<S> entities) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -73,19 +51,19 @@ public class PersonaService implements PersonaRepository {
 	}
 
 	@Override
-	public <S extends Persona> S saveAndFlush(S entity) {
+	public <S extends Productos> S saveAndFlush(S entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Persona> List<S> saveAllAndFlush(Iterable<S> entities) {
+	public <S extends Productos> List<S> saveAllAndFlush(Iterable<S> entities) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void deleteAllInBatch(Iterable<Persona> entities) {
+	public void deleteAllInBatch(Iterable<Productos> entities) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -103,43 +81,43 @@ public class PersonaService implements PersonaRepository {
 	}
 
 	@Override
-	public Persona getOne(Long id) {
+	public Productos getOne(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Persona getById(Long id) {
+	public Productos getById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Persona> List<S> findAll(Example<S> example) {
+	public <S extends Productos> List<S> findAll(Example<S> example) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Persona> List<S> findAll(Example<S> example, Sort sort) {
+	public <S extends Productos> List<S> findAll(Example<S> example, Sort sort) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Page<Persona> findAll(Pageable pageable) {
+	public Page<Productos> findAll(Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Persona> S save(S entity) {
+	public <S extends Productos> S save(S entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Optional<Persona> findById(Long id) {
+	public Optional<Productos> findById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -163,13 +141,19 @@ public class PersonaService implements PersonaRepository {
 	}
 
 	@Override
+	public void delete(Productos entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
 	public void deleteAllById(Iterable<? extends Long> ids) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteAll(Iterable<? extends Persona> entities) {
+	public void deleteAll(Iterable<? extends Productos> entities) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -181,35 +165,32 @@ public class PersonaService implements PersonaRepository {
 	}
 
 	@Override
-	public <S extends Persona> Optional<S> findOne(Example<S> example) {
+	public <S extends Productos> Optional<S> findOne(Example<S> example) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Persona> Page<S> findAll(Example<S> example, Pageable pageable) {
+	public <S extends Productos> Page<S> findAll(Example<S> example, Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Persona> long count(Example<S> example) {
+	public <S extends Productos> long count(Example<S> example) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public <S extends Persona> boolean exists(Example<S> example) {
+	public <S extends Productos> boolean exists(Example<S> example) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public <S extends Persona, R> R findBy(Example<S> example, Function<FetchableFluentQuery<S>, R> queryFunction) {
+	public <S extends Productos, R> R findBy(Example<S> example, Function<FetchableFluentQuery<S>, R> queryFunction) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-		
-
 }
